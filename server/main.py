@@ -11,7 +11,6 @@ CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
 db = SQLAlchemy(app)
 
-# Simple user model
 class User(db.Model):
     __tablename__ = 'user'
 
@@ -19,18 +18,17 @@ class User(db.Model):
     username = db.Column(db.String(255), unique=True, nullable=False)
     image_path = db.Column(db.String(255), nullable=False)
 
-# App controller
-@app.route('/init_db', methods=['GET'])
-def init_db():
+with app.app_context():
     db.create_all()
-    return jsonify({ 'message': 'Database created successfully' }), 200
 
-@app.route('/drop_db', methods=['DELETE'])
-def drop_db():
-    db.drop_all()
-    return jsonify({ 'message': 'Database dropped successfully' }), 200
+################################################################################
 
-# User controller
+@cross_origin()
+@app.route('/health', methods=['GET'])
+def health():
+    return jsonify({ 'message': 'Alive!' }), 200
+
+@cross_origin()
 @app.route('/users', methods=['GET'])
 def get_all_users():
     users = User.query.all()
@@ -45,6 +43,7 @@ def get_all_users():
 
     return jsonify(result), 200
 
+@cross_origin()
 @app.route('/user/<string:username>', methods=['GET'])
 def get_user_by_username(username):
     user = User.query.filter_by(username=username).first()
@@ -57,7 +56,6 @@ def get_user_by_username(username):
 
     return jsonify(result), 200
 
-# Authentication controller
 @cross_origin()
 @app.route('/signin', methods=['POST'])
 def signin():
