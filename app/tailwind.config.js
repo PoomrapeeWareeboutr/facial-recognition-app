@@ -2,15 +2,12 @@
 export default {
   darkMode: 'class',
   content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
     'node_modules/preline/dist/*.js',
   ],
   theme: {
     extend: {},
   },
-  plugins: [
-    require('preline/plugin'),
-  ],
-}
-
+  plugins: [require('preline/plugin')],
+};
