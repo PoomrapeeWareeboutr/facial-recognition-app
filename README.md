@@ -1,16 +1,17 @@
 # Facial Authentication App
 
 ## About this project
-This project is a part of assignments in the ITCS461 Computer and Communication Security Course, Mahidol University. The project demonstrates the use of facial recoginition for authentication purposes in a web application.
+
+This project revolves around a small web-based application that utilizes Vue.js in conjunction with the Python [face_recognition](https://github.com/ageitgey/face_recognition) module to facilitate facial authentication.
 
 ## Run the demo
 
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/).
 2. Clone this repository.
-3. Change directory to `cd .\facial-recognition-app\`.
+3. Change the directory to `cd .\facial-recognition-app\`.
 4. Run the application by `docker compose up -d` command in your terminal.
-5. The Application will running at http://localhost:3000/.
-6. Teminate the application using `docker compose down --rmi local` command.
+5. The Application will be running at http://localhost:3000/.
+6. Terminate the application using `docker compose down --rmi local` command.
 
 *Note: Make sure your Docker Desktop is running.*
 
