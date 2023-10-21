@@ -1,0 +1,20 @@
+services:
+  webapp:
+    container_name: webapp
+    build:
+      context: ./app
+    depends_on:
+      - service
+    expose:
+      - 3000
+    ports:
+      - "3000:3000"
+
+  service:
+    container_name: service
+    build:
+      context: ./server
+    expose:
+      - 5000
+    ports:
+      - "5000:5000"
