@@ -1,13 +1,10 @@
-# venv\Scripts\activate
-# flask --app main run
-
-import os
-import io
-import base64
 from flask import Flask, request, jsonify
-from flask_sqlalchemy import SQLAlchemy
-import face_recognition
 from flask_cors import CORS, cross_origin
+from flask_sqlalchemy import SQLAlchemy
+import base64
+import face_recognition
+import io
+import os
 
 app = Flask(__name__)
 CORS(app)
